@@ -1,0 +1,57 @@
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\bin\Debug\devices.exe
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\bin\Debug\devices.pdb
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\bin\Debug\FirstFloor.ModernUI.dll
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\bin\Debug\FirstFloor.ModernUI.xml
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\devices.csprojResolveAssemblyReference.cache
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\MainWindow.baml
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\App.baml
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\MainWindow.g.cs
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\App.g.cs
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\devices_MarkupCompile.cache
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\devices.g.resources
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\devices.exe
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\devices.pdb
+c:\users\lalit\documents\visual studio 2015\Projects\devices\devices\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices\devices\obj\Debug\devices_Content.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices\devices\bin\Debug\devices.exe.config
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices\devices\bin\Debug\icon_small.ico
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\bin\Debug\devices.exe.config
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\devices.exe
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\devices.pdb
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\bin\Debug\icon_small.ico
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\bin\Debug\devices.exe
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\bin\Debug\devices.pdb
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\devices.csprojResolveAssemblyReference.cache
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\MainWindow.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\App.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\MainWindow.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\App.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\devices_Content.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\devices_MarkupCompile.cache
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\devices.g.resources
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\Settings.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\devices_2\devices\obj\Debug\Settings.g.cs
+G:\Lalit Som\Work\bitbucket\devices_2\devices\bin\Debug\icon_small.ico
+G:\Lalit Som\Work\bitbucket\devices_2\devices\bin\Debug\devices.exe.config
+G:\Lalit Som\Work\bitbucket\devices_2\devices\bin\Debug\devices.exe
+G:\Lalit Som\Work\bitbucket\devices_2\devices\bin\Debug\devices.pdb
+G:\Lalit Som\Work\bitbucket\devices_2\devices\bin\Debug\FirstFloor.ModernUI.dll
+G:\Lalit Som\Work\bitbucket\devices_2\devices\bin\Debug\FirstFloor.ModernUI.xml
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices.csprojAssemblyReference.cache
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\Assets\ModernUI.MyTheme.baml
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\MainWindow.baml
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\Settings.baml
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\App.baml
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\MainWindow.g.cs
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\Settings.g.cs
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\App.g.cs
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices_Content.g.cs
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices_MarkupCompile.cache
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices.g.resources
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices.csproj.CoreCompileInputs.cache
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices.csproj.CopyComplete
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices.exe
+G:\Lalit Som\Work\bitbucket\devices_2\devices\obj\Debug\devices.pdb
