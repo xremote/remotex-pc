@@ -17,13 +17,14 @@ using System.Windows.Threading;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Microsoft.VisualBasic;
+using AudioSwitcher.AudioApi.CoreAudio;
 
 namespace devices
 {
   
     public partial class MainWindow : ModernWindow
     {
-
+         
         SolidColorBrush red = new SolidColorBrush(System.Windows.Media.Color.FromRgb(197, 19, 19)); 
             SolidColorBrush green = new SolidColorBrush(System.Windows.Media.Color.FromRgb(19, 147, 43));
         public Boolean disconnect = false;
@@ -36,9 +37,10 @@ namespace devices
         public Boolean threadrunning = false;
         public string pcname = "",pcIP="",remotename="",remoteip="";
 
+        CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
         // Create a new dictionary of strings, with string keys.
         //
-      public Dictionary<string, string> SystemInfo =   new Dictionary<string, string>();        
+        public Dictionary<string, string> SystemInfo =   new Dictionary<string, string>();        
 
 
         Thread thread1;
@@ -288,7 +290,7 @@ namespace devices
 
                     if (str2 != null)
                     {
-                        //  Debug.WriteLine(str2);
+                         Debug.WriteLine(str2);
                         if (str2[0] == '!')
                         {
                             movemouse2(str2.Substring(1, str2.Length - 1) + ";#");  //screensharing
@@ -374,7 +376,6 @@ namespace devices
         {
             //closeall();
             refreshUI();
-            
             //Debug.WriteLine(totalhddsize/(1024*1024*1024));
             //Debug.WriteLine(cpuCounter.NextValue() + "%" + ramCounter.NextValue() + "MB");
 
@@ -497,9 +498,17 @@ namespace devices
 
         public void specialaction(String action)
         {
-
+            int value = 50;
+            String[] _action = action.Split(';');
+            if (_action[0] == "setvolume")
+            {
+                action = _action[0];
+                value = Convert.ToInt32(_action[1]);
+            }
             switch (action)
             {
+                
+
                 case "lockuser":
                     lockuser();
                     break;
@@ -536,6 +545,9 @@ namespace devices
                 case "clearsins":
                     clearsins();
                     break;
+                case "setvolume":
+                    setvolume(value);
+                    break;
             }
 
         }
@@ -547,6 +559,13 @@ namespace devices
             LockWorkStation();
         }
         String timedelay = "10";
+
+        public void setvolume(int value) {
+            defaultPlaybackDevice.Volume = value;
+
+        }
+
+
 
         public void shutdown()
         {
