@@ -1,0 +1,79 @@
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\bin\Debug\RemoteX.exe
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\bin\Debug\RemoteX.pdb
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\RemoteX.csprojResolveAssemblyReference.cache
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\MainWindow.baml
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\App.baml
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\MainWindow.g.cs
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\App.g.cs
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\RemoteX_MarkupCompile.cache
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\RemoteX.g.resources
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\RemoteX.exe
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\RemoteX.pdb
+c:\users\lalit\documents\visual studio 2015\Projects\RemoteX\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX\RemoteX\obj\Debug\RemoteX_Content.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX\RemoteX\bin\Debug\RemoteX.exe.config
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX\RemoteX\bin\Debug\icon_small.ico
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\bin\Debug\RemoteX.exe.config
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\RemoteX.exe
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\RemoteX.pdb
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\bin\Debug\icon_small.ico
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\bin\Debug\RemoteX.exe
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\bin\Debug\RemoteX.pdb
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\RemoteX.csprojResolveAssemblyReference.cache
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\MainWindow.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\App.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\MainWindow.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\App.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\RemoteX_Content.g.cs
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\RemoteX_MarkupCompile.cache
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\RemoteX.g.resources
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\Settings.baml
+C:\Users\Lalit\Documents\Visual Studio 2015\Projects\RemoteX_2\RemoteX\obj\Debug\Settings.g.cs
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\bin\Debug\icon_small.ico
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\bin\Debug\RemoteX.exe.config
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\bin\Debug\RemoteX.exe
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\bin\Debug\RemoteX.pdb
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX.csprojAssemblyReference.cache
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\MainWindow.baml
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\Settings.baml
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\App.baml
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\MainWindow.g.cs
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\Settings.g.cs
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\App.g.cs
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX_Content.g.cs
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX_MarkupCompile.cache
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX.g.resources
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX.csproj.CoreCompileInputs.cache
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX.csproj.CopyComplete
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX.exe
+G:\Lalit Som\Work\bitbucket\RemoteX_2\RemoteX\obj\Debug\RemoteX.pdb
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\icon_small.ico
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\RemoteX.exe.config
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\RemoteX.exe
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\RemoteX.pdb
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\MainWindow.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Settings.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\App.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\MainWindow.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Settings.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\App.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX_Content.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX_MarkupCompile.cache
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.g.resources
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csproj.CoreCompileInputs.cache
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csproj.CopyComplete
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.exe
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.pdb
