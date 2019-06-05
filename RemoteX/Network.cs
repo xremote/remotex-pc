@@ -1,110 +1,108 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace RemoteX
 {
     public partial class MainWindow
     {
+        public Boolean G_threadrunning = false;
+        public string G_pcname = "", G_pcIP = "", G_remotename = "", G_remoteip = "";
 
-        private void createthread()
+        public Boolean G_disconnect = false;
+        static TcpListener G_listener;
+        public NetworkStream G_stream;
+        public StreamReader G_streamreader;
+        public StreamWriter streamwriter;
+        Socket G_socket = null;
+
+        private void start_thread()
         {
-
             try
             {
-
-
-                thread1 = new Thread(new ThreadStart(acceptingsockets));
-
-                thread1.Start();
-
+                Thread Listener_thread = new Thread(new ThreadStart(acceptingsockets));
+                Listener_thread.Start();
             }
             catch (Exception f)
             {
                 Debug.WriteLine(f.Message);
             }
-
-
         }
 
         private void acceptingsockets()
         {
-
             try
             {
-                //       IPEndPoint c_endPoint = (IPEndPoint)soc.RemoteEndPoint;
-                soc = listener.AcceptSocket();
+                G_socket = G_listener.AcceptSocket();
             }
             catch (Exception f)
             {
                 Debug.WriteLine(f.Message);
-
             }
+
+
             NetworkStream clientStream = null;
-            int t = 1000;
             try
             {
-                clientStream = new NetworkStream(soc);
+                clientStream = new NetworkStream(G_socket);
+                G_stream = new NetworkStream(G_socket);
+                G_streamreader = new StreamReader(G_stream);
+                streamwriter = new StreamWriter(G_stream);
+                streamwriter.AutoFlush = true;
+                streamwriter.Flush();
+                string networkmessage = "";
 
-
-                s = new NetworkStream(soc);
-                sr = new StreamReader(s);
-                sw = new StreamWriter(s);
-                sw.AutoFlush = true;
-                sw.Flush();
-                string str2 = "";
-
-                //string str2 = sr.ReadLine();
-
-                //if(str2 != "password" + Properties.Settings.Default.Password)
-                {
-                    //  disconnect = true;
-                }
-
-                while (t > 0)
+                while (true) // keep listening for messages until disconnects
                 {
 
-                    if (disconnect)
+                    if (G_disconnect)
                     {
-                        disconnect = false;
+                        G_disconnect = false;
                         break;
                     }
-                    str2 = sr.ReadLine();
+                    networkmessage = G_streamreader.ReadLine();
 
 
-                    if (str2 != null)
+                    if (networkmessage != null)
                     {
-                        Debug.WriteLine(str2);
-                        if (str2[0] == '!')
+                        Debug.WriteLine(networkmessage);
+                        if (networkmessage[0] == '!')
                         {
-                            movemouse2(str2.Substring(1, str2.Length - 1) + ";#");  //screensharing
+                            screen_mouse(networkmessage.Substring(1, networkmessage.Length - 1) + ";#");  //screensharing
                             sendscreen();
                         }
-                        else if (str2[0] == '*')
-                            movemouse(str2.Substring(1, str2.Length - 1) + "#");   //mouse 
-
-                        else if (str2[0] == '@')
-                            extractkey(str2.Substring(1, str2.Length - 1) + "#");    //keyboard
-                        else if (str2[0] == '%')
-                            shortcut(str2.Substring(1, str2.Length - 1));
-                        else if (str2[0] == '$')
-                            sendsysinfo(str2.Substring(1, str2.Length - 1));    //system info
-                        else if (str2[0] == '&')
-                            getdriveinfo(str2.Substring(1, str2.Length - 1));   //explorer
-                        else if (str2[0] == '^')
-                            specialaction(str2.Substring(1, str2.Length - 1));
-
+                        else if (networkmessage[0] == '*')
+                        {
+                            movemouse(networkmessage.Substring(1, networkmessage.Length - 1) + "#");   //mouse 
+                        }
+                        else if (networkmessage[0] == '@')
+                        {
+                            extractkey(networkmessage.Substring(1, networkmessage.Length - 1) + "#");    //keyboard
+                        }
+                        else if (networkmessage[0] == '%')
+                        {
+                            shortcut(networkmessage.Substring(1, networkmessage.Length - 1));        // shortcutkeys
+                        }
+                        else if (networkmessage[0] == '$')
+                        {
+                            sendsysinfo(networkmessage.Substring(1, networkmessage.Length - 1));    //system info
+                        }
+                        else if (networkmessage[0] == '&')
+                        {
+                            getdriveinfo(networkmessage.Substring(1, networkmessage.Length - 1));   //explorer
+                        }
+                        else if (networkmessage[0] == '^')
+                        {
+                            specialaction(networkmessage.Substring(1, networkmessage.Length - 1)); //special actions
+                        }
                     }
                     else
+                    {
                         break;
-                    //t--;
+                    }
                 }
 
 
@@ -117,26 +115,24 @@ namespace RemoteX
             try
             {
 
-                sw.Close();
-                sr.Close();
-                s.Close();
-                sw = null;
-                sr = null;
-                s = null;
+                streamwriter.Close();
+                G_streamreader.Close();
+                G_stream.Close();
+                streamwriter = null;
+                G_streamreader = null;
+                G_stream = null;
                 clientStream.Close();
-                soc.Shutdown(SocketShutdown.Both);
-                soc.Close();
-                soc = null;
+                G_socket.Shutdown(SocketShutdown.Both);
+                G_socket.Close();
+                G_socket = null;
 
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }
-            threadrunning = false;
+            G_threadrunning = false;
         }
-
-
 
 
         //get local ip address
@@ -155,8 +151,6 @@ namespace RemoteX
                 }
             }
             return localIP;
-
-
         }
     }
 }

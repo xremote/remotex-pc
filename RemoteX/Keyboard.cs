@@ -11,59 +11,7 @@ namespace RemoteX
 {
     public partial class MainWindow
     {
-
-
         // Keyboard movements
-
-        public void extractkey(string keyinput)
-        {
-            //Details.Text = "";
-            int i;
-
-            if (keyinput != null)
-            {
-
-
-                string[] keys = keyinput.Split(';');
-
-                foreach (string key in keys)
-                {
-                    if (key == null || key == "#")
-                        break;
-                    try
-                    {
-                        i = key[0] - '0';
-                        typethis(key.Substring(1, key.Length - 1), i);
-                        //Details.Text += "\n" + key + " " + i + " " + key.Substring(1, key.Length - 1);
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.WriteLine(e.Message);
-                    }
-                }
-
-
-
-            }
-        }
-
-
-
-
-
-        public void typethis(string key, int i)
-        {
-            Keys mykey;
-            mykey = (Keys)Enum.Parse(typeof(Keys), key, true);
-
-            if (i == 1)
-                KeyboardSend.KeyDown(mykey);
-            else if (i == 2)
-                KeyboardSend.KeyUp(mykey);
-
-        }
-
-
 
 
         static class KeyboardSend
@@ -85,6 +33,44 @@ namespace RemoteX
             }
         }
 
+        public void extractkey(string keyinput)
+        {
+            int key_status; // down/up
+
+            if (keyinput != null)
+            {
+                string[] k_input = keyinput.Split(';');
+
+                foreach (string key in k_input)
+                {
+                    if (key == null || key == "#")
+                        break;
+                    try
+                    {
+                        key_status = key[0] - '0';
+                        typethis(key.Substring(1, key.Length - 1), key_status);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                    }
+                }
+
+
+
+            }
+        }
+                          
+        public void typethis(string key, int key_status)
+        {
+            Keys mykey;
+            mykey = (Keys)Enum.Parse(typeof(Keys), key, true);
+
+            if (key_status == 1)
+                KeyboardSend.KeyDown(mykey);
+            else if (key_status == 2)
+                KeyboardSend.KeyUp(mykey);
+        }
 
     }
 }

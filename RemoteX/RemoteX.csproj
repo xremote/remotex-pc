@@ -91,7 +91,6 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpeacialControls.cs" />
-    <Compile Include="UI_controls.cs" />
     <Page Include="Assets\ModernUI.MyTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
