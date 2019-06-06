@@ -1,0 +1,46 @@
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\icon_small.ico
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\RemoteX.exe.config
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\RemoteX.exe
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\RemoteX.pdb
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\MainWindow.baml
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\Settings.baml
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\App.baml
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\MainWindow.g.cs
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\Settings.g.cs
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\App.g.cs
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX_Content.g.cs
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX_MarkupCompile.cache
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX.g.resources
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX.csproj.CoreCompileInputs.cache
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX.csproj.CopyComplete
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX.exe
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX.pdb
+C:\Users\som\Documents\github\New folder\RemoteX\RemoteX\obj\Debug\RemoteX.csprojAssemblyReference.cache
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\icon_small.ico
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\RemoteX.exe.config
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\RemoteX.exe
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\RemoteX.pdb
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csprojAssemblyReference.cache
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\MainWindow.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Settings.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\App.baml
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\MainWindow.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Settings.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\App.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX_Content.g.cs
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX_MarkupCompile.cache
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.g.resources
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csproj.CoreCompileInputs.cache
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csproj.CopyComplete
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.exe
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.pdb
