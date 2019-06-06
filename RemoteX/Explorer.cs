@@ -55,7 +55,7 @@ namespace RemoteX
                                 drive_info = drive_info.Substring(0, drive_info.Length - 1); //remove last symbol ';'
                             }
 
-                            streamwriter.WriteLine(drive_info);
+                            G_streamwriter.WriteLine(drive_info);
                             break;
                         }
 
@@ -101,7 +101,7 @@ namespace RemoteX
                                 drive_info = drive_info.Substring(0, drive_info.Length - 1); //remove last ;
                             }
 
-                            streamwriter.WriteLine(drive_info);
+                            G_streamwriter.WriteLine(drive_info);
                             break;
                         }
                     case EXPLORER_FILE:
@@ -115,7 +115,7 @@ namespace RemoteX
                         }
                     default:
                         {
-                            streamwriter.WriteLine(drive_info);
+                            G_streamwriter.WriteLine(drive_info);
                             break;
                         }
 

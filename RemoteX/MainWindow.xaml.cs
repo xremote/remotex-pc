@@ -161,6 +161,9 @@ namespace RemoteX
         {
             while (true)
             {
+                if (G_disconnect) {
+                    disconnect_network();
+                }
                 if (!G_threadrunning)
                 {
                     G_threadrunning = true;
@@ -205,12 +208,11 @@ namespace RemoteX
                 await Task.Delay(2000);
             }
         }
-
-
-
+               
         private void Disconnect_button_Click(object sender, RoutedEventArgs e)
         {
             G_disconnect = true;
+            disconnect_network();
         }
 
         private void Heading_text_Click(object sender, RoutedEventArgs e)

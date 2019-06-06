@@ -16,15 +16,18 @@ namespace RemoteX
         static TcpListener G_listener;
         public NetworkStream G_stream;
         public StreamReader G_streamreader;
-        public StreamWriter streamwriter;
+        public StreamWriter G_streamwriter;
+        NetworkStream G_clientStream = null;
         Socket G_socket = null;
+        Thread G_Listener_thread;
+
 
         private void start_thread()
         {
             try
             {
-                Thread Listener_thread = new Thread(new ThreadStart(acceptingsockets));
-                Listener_thread.Start();
+                G_Listener_thread = new Thread(new ThreadStart(acceptingsockets));
+                G_Listener_thread.Start();
             }
             catch (Exception f)
             {
@@ -36,6 +39,7 @@ namespace RemoteX
         {
             try
             {
+                Debug.WriteLine("Listening/......");
                 G_socket = G_listener.AcceptSocket();
             }
             catch (Exception f)
@@ -44,15 +48,15 @@ namespace RemoteX
             }
 
 
-            NetworkStream clientStream = null;
+
             try
             {
-                clientStream = new NetworkStream(G_socket);
+                G_clientStream = new NetworkStream(G_socket);
                 G_stream = new NetworkStream(G_socket);
                 G_streamreader = new StreamReader(G_stream);
-                streamwriter = new StreamWriter(G_stream);
-                streamwriter.AutoFlush = true;
-                streamwriter.Flush();
+                G_streamwriter = new StreamWriter(G_stream);
+                G_streamwriter.AutoFlush = true;
+                G_streamwriter.Flush();
                 string networkmessage = "";
 
                 while (true) // keep listening for messages until disconnects
@@ -60,7 +64,7 @@ namespace RemoteX
 
                     if (G_disconnect)
                     {
-                        G_disconnect = false;
+                        disconnect_network();
                         break;
                     }
                     networkmessage = G_streamreader.ReadLine();
@@ -114,26 +118,92 @@ namespace RemoteX
 
             try
             {
-
-                streamwriter.Close();
-                G_streamreader.Close();
-                G_stream.Close();
-                streamwriter = null;
-                G_streamreader = null;
-                G_stream = null;
-                clientStream.Close();
-                G_socket.Shutdown(SocketShutdown.Both);
-                G_socket.Close();
-                G_socket = null;
+                G_disconnect = true;
+                disconnect_network();
 
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }
-            G_threadrunning = false;
+
         }
 
+
+        public void disconnect_network()
+        {
+
+            try
+            {
+                G_streamwriter.Close();
+                G_streamwriter = null;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            try
+            {
+                G_streamreader.Close();
+                G_streamreader = null;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            try
+            {
+                G_stream.Close();
+                G_stream = null;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            try
+            {
+                G_clientStream.Close();
+                G_clientStream = null;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            try
+            {
+                G_socket.Shutdown(SocketShutdown.Both);
+
+                G_socket.Close();
+                G_socket = null;
+
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("socket shutdown " + e);
+            }
+
+
+
+            try
+            {
+                G_Listener_thread.Abort();
+
+            }
+            catch (Exception)
+            {
+            }
+
+            G_threadrunning = false;
+            G_disconnect = false;
+            Debug.WriteLine("Disconneted");
+        }
 
         //get local ip address
         public string getlocalip()
