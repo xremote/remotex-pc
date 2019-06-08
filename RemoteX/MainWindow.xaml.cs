@@ -22,7 +22,7 @@ namespace RemoteX
         SolidColorBrush G_red = new SolidColorBrush(System.Windows.Media.Color.FromRgb(197, 19, 19));
         SolidColorBrush G_green = new SolidColorBrush(System.Windows.Media.Color.FromRgb(19, 147, 43));
 
-        NotifyIcon G_nIcon = new NotifyIcon();        
+        NotifyIcon G_nIcon = new NotifyIcon();
         private System.Windows.Forms.ContextMenu G_traymenu;
         private System.Windows.Forms.MenuItem G_traymennu_exit;
         private System.Windows.Forms.MenuItem G_traymenu_open;
@@ -71,6 +71,7 @@ namespace RemoteX
             initializeSystemInfo();
 
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
@@ -81,6 +82,7 @@ namespace RemoteX
             else
             {
                 G_nIcon.Visible = false;
+                G_nIcon.Dispose();
                 closeall();
             }
             e.Cancel = G_stopclose;
@@ -120,18 +122,16 @@ namespace RemoteX
 
         private void maximize_app()
         {
-            if (this.Visibility == Visibility.Hidden)
-            {
-                this.Visibility = Visibility.Visible;
-                System.Windows.Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background,
-                    new Action(delegate ()
-                    {
-                        this.Show();
-                        this.WindowState = WindowState.Normal;
-                        this.Activate();
-                    })
-                );
-            }
+            this.Visibility = Visibility.Visible;
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background,
+                new Action(delegate ()
+                {
+                    this.Show();
+                    this.WindowState = WindowState.Normal;
+                    this.Activate();
+                })
+            );
+
         }
 
 
@@ -161,7 +161,8 @@ namespace RemoteX
         {
             while (true)
             {
-                if (G_disconnect) {
+                if (G_disconnect)
+                {
                     disconnect_network();
                 }
                 if (!G_threadrunning)
@@ -208,7 +209,7 @@ namespace RemoteX
                 await Task.Delay(2000);
             }
         }
-               
+
         private void Disconnect_button_Click(object sender, RoutedEventArgs e)
         {
             G_disconnect = true;

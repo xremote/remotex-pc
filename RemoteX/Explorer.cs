@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net.Sockets;
 
 namespace RemoteX
 {
@@ -106,9 +107,17 @@ namespace RemoteX
                         }
                     case EXPLORER_FILE:
                         {
-                            if (File.Exists(_input))
+                            try
                             {
-                                sendfile(_input);
+
+                                if (File.Exists(_input))
+                                {
+                                    sendfile(_input);
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Debug.WriteLine("file not sent : " + e.ToString());
                             }
 
                             break;
@@ -163,15 +172,29 @@ namespace RemoteX
 
             if (memory_stream.Length > 0)
             {
+                Debug.WriteLine("send file " + memory_stream.Length);
                 memory_stream.Position = 0;
                 numberOfBytes = memory_stream.Length;
-
+                G_stream.WriteTimeout = 2000;
                 while (bytesReceived < numberOfBytes && (bytes_read = memory_stream.Read(buffer, 0, buffer.Length)) > 0)
                 {
-                    G_stream.Write(buffer, 0, bytes_read);
+                    try
+                    {
+                        G_stream.Write(buffer, 0, bytes_read);
+                        
+                    }
+                    catch(Exception e)
+                    {
+                        
+                        Debug.WriteLine(e.ToString() + " error " + G_stream.CanWrite);
+                        break;
+                    }
                     bytesReceived += bytes_read;
+                    Debug.WriteLine("sent " + bytesReceived);
                 }
-
+                //G_streamwriter.WriteLine("");
+                Debug.WriteLine("done " + G_stream.DataAvailable);
+                G_stream.WriteTimeout = System.Threading.Timeout.Infinite;
             }
         }
     }

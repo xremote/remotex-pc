@@ -17,7 +17,6 @@ namespace RemoteX
         public NetworkStream G_stream;
         public StreamReader G_streamreader;
         public StreamWriter G_streamwriter;
-        NetworkStream G_clientStream = null;
         Socket G_socket = null;
         Thread G_Listener_thread;
 
@@ -51,7 +50,6 @@ namespace RemoteX
 
             try
             {
-                G_clientStream = new NetworkStream(G_socket);
                 G_stream = new NetworkStream(G_socket);
                 G_streamreader = new StreamReader(G_stream);
                 G_streamwriter = new StreamWriter(G_stream);
@@ -67,6 +65,7 @@ namespace RemoteX
                         disconnect_network();
                         break;
                     }
+                    Debug.WriteLine("Waiting for msg....");
                     networkmessage = G_streamreader.ReadLine();
 
 
@@ -163,22 +162,10 @@ namespace RemoteX
             {
                 Debug.WriteLine(e);
             }
-
-            try
-            {
-                G_clientStream.Close();
-                G_clientStream = null;
-
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
-
+            
             try
             {
                 G_socket.Shutdown(SocketShutdown.Both);
-
                 G_socket.Close();
                 G_socket = null;
 
