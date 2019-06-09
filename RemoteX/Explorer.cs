@@ -175,7 +175,7 @@ namespace RemoteX
                 Debug.WriteLine("send file " + memory_stream.Length);
                 memory_stream.Position = 0;
                 numberOfBytes = memory_stream.Length;
-                G_stream.WriteTimeout = 2000;
+                G_stream.WriteTimeout = 1500;
                 while (bytesReceived < numberOfBytes && (bytes_read = memory_stream.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     try
