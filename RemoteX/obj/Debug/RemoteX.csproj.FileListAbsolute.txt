@@ -29,7 +29,6 @@ C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\AudioSwitcher.AudioAp
 C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\AudioSwitcher.AudioApi.dll
 C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\FirstFloor.ModernUI.dll
 C:\Users\som\Documents\github\remotex-pc\RemoteX\bin\Debug\FirstFloor.ModernUI.xml
-C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csprojAssemblyReference.cache
 C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Assets\ModernUI.MyTheme.baml
 C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\MainWindow.baml
 C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\Settings.baml
