@@ -77,7 +77,7 @@ namespace RemoteX
         
         public void setvolume(int value)
         {
-            G_defaultPlaybackDevice.Volume = value;
+            G_defaultPlaybackDevice.Volume = value;            
         }
 
         public void shutdown()
@@ -274,6 +274,12 @@ namespace RemoteX
             return new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
         }
 
+        private void refreshSystemInfo()
+        {
+            G_SystemInfo["volume"]  = G_defaultPlaybackDevice.Volume.ToString();
+            G_SystemInfo["ipaddress"]  =  G_pcIP;
+        }
+
         private void initializeSystemInfo()
         {
             //store system info for future use
@@ -287,6 +293,7 @@ namespace RemoteX
                 G_SystemInfo.Add("monitorwidth", SystemInformation.PrimaryMonitorSize.Width.ToString());
                 G_SystemInfo.Add("batterylife", (SystemInformation.PowerStatus.BatteryLifePercent).ToString());
                 G_SystemInfo.Add("batterystatus", (SystemInformation.PowerStatus.BatteryChargeStatus).ToString());
+                G_SystemInfo.Add("volume", G_defaultPlaybackDevice.Volume.ToString());                
             }
             catch (Exception e)
             {
@@ -373,6 +380,7 @@ namespace RemoteX
 
         public void sendsysinfo(String infotype)
         {
+            refreshSystemInfo();
             String json_sys_info = MyDictionaryToJson(G_SystemInfo);
             if (json_sys_info != null)
             {
