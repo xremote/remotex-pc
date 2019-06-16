@@ -154,13 +154,11 @@ namespace RemoteX
 
         public void sendfile(string filename)
         {
-
             int bytes_read = 0;
             Int64 numberOfBytes = 0, bytesReceived = 0;
             MemoryStream memory_stream = new MemoryStream();
             System.IO.FileStream file_stream = new FileStream(filename, FileMode.Open, FileAccess.Read);
             var buffer = new byte[1024 * 128];
-
 
             memory_stream.Position = 0;
             file_stream.Position = 0;
