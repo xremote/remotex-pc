@@ -227,7 +227,6 @@ namespace RemoteX
 
         private void show_settings_wndw()
         {
-
             Settings subWindow = new Settings();
             subWindow.Show();
         }

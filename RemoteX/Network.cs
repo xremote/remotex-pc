@@ -38,7 +38,7 @@ namespace RemoteX
         {
             try
             {
-                Debug.WriteLine("Listening/......");
+                Debug.WriteLine("Listening......");
                 G_socket = G_listener.AcceptSocket();
             }
             catch (Exception f)
@@ -176,15 +176,14 @@ namespace RemoteX
                 Debug.WriteLine("socket shutdown " + e);
             }
 
-
-
             try
             {
                 G_Listener_thread.Abort();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
             }
 
             G_threadrunning = false;

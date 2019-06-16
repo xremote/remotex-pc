@@ -184,16 +184,13 @@ namespace RemoteX
                         
                     }
                     catch(Exception e)
-                    {
-                        
-                        Debug.WriteLine(e.ToString() + " error " + G_stream.CanWrite);
+                    {                        
+                        Debug.WriteLine(e.ToString());
                         break;
                     }
                     bytesReceived += bytes_read;
                     Debug.WriteLine("sent " + bytesReceived);
                 }
-                //G_streamwriter.WriteLine("");
-                Debug.WriteLine("done " + G_stream.DataAvailable);
                 G_stream.WriteTimeout = System.Threading.Timeout.Infinite;
             }
         }
