@@ -19,7 +19,7 @@ namespace RemoteX
         public StreamWriter G_streamwriter;
         Socket G_socket = null;
         Thread G_Listener_thread;
-
+        Thread G_sendfile_thread;
 
         private void start_thread()
         {
@@ -72,6 +72,15 @@ namespace RemoteX
                     if (networkmessage != null)
                     {
                         Debug.WriteLine(networkmessage);
+                        if (networkmessage.Equals("syncback"))
+                        {
+                            if (G_sendfile_thread!=null &&  G_sendfile_thread.IsAlive)
+                            {
+                                Debug.WriteLine("closed file thread");
+                                G_sendfile_thread.Abort();
+                                G_sendfile_thread = null;
+                            }
+                        }
                         if (networkmessage[0] == '!')
                         {
                             screen_mouse(networkmessage.Substring(1, networkmessage.Length - 1) + ";#");  //screensharing
@@ -95,7 +104,7 @@ namespace RemoteX
                         }
                         else if (networkmessage[0] == '&')
                         {
-                            getdriveinfo(networkmessage.Substring(1, networkmessage.Length - 1));   //explorer
+                            explorer_actions(networkmessage.Substring(1, networkmessage.Length - 1));   //explorer
                         }
                         else if (networkmessage[0] == '^')
                         {
