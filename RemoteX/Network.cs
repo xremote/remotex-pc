@@ -66,12 +66,12 @@ namespace RemoteX
                         break;
                     }
                     Debug.WriteLine("Waiting for msg....");
-                    networkmessage = G_streamreader.ReadLine();
-
-
-                    if (networkmessage != null)
+                    
+                    networkmessage = crypt_ReadLine();
+                    
+                    Debug.WriteLine(networkmessage);
+                    if (networkmessage != null && networkmessage.Length>0)
                     {
-                        Debug.WriteLine(networkmessage);
                         if (networkmessage.Equals("syncback"))
                         {
                             if (G_sendfile_thread!=null &&  G_sendfile_thread.IsAlive)
@@ -113,6 +113,7 @@ namespace RemoteX
                     }
                     else
                     {
+                        Debug.WriteLine("what");
                         break;
                     }
                 }

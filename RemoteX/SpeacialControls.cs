@@ -144,6 +144,19 @@ namespace RemoteX
 
         public void shortcut(String input)
         {
+            Debug.WriteLine(input);
+            Debug.WriteLine(input.Length);
+            Debug.WriteLine(input.GetType());
+            Debug.WriteLine(input.Clone());
+            String tmp = "";
+            for(int i = 0; i < input.Length; i++)
+            {
+                Debug.WriteLine(i);
+                Debug.WriteLine(input[i]);
+            }
+            
+
+            Debug.WriteLine(input.IsNormalized() + " " + "d ".IsNormalized() + input.Length);
             //shortcut keys......................
 
             if (input == "close")
@@ -384,7 +397,7 @@ namespace RemoteX
             String json_sys_info = MyDictionaryToJson(G_SystemInfo);
             if (json_sys_info != null)
             {
-                G_streamwriter.WriteLine(json_sys_info);
+                crypt_WriteLine(json_sys_info);
             }
 
         }

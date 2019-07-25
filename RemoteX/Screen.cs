@@ -64,14 +64,14 @@ namespace RemoteX
 
                 screenBmp.Save(ms, jpgEncoder, myEncoderParameters);
                 
-                G_stream.Write(BitConverter.GetBytes(ms.Length), 0, 8);
+                crypt_Write(BitConverter.GetBytes(ms.Length), 0, 8);
                 long numberOfBytes = ms.Length;
                 long bytesReceived = 0;
                 ms.Position = 0;
 
                 while (bytesReceived < numberOfBytes && (bytes_read = ms.Read(buffer, 0, buffer.Length)) > 0)
                 {
-                    G_stream.Write(buffer, 0, bytes_read);
+                    crypt_Write(buffer, 0, bytes_read);
                     bytesReceived += bytes_read;
                 }
                 

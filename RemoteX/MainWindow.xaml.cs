@@ -159,6 +159,7 @@ namespace RemoteX
 
         private async void refreshUI()
         {
+
             while (true)
             {
                 if (G_disconnect)
