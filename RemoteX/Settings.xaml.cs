@@ -28,14 +28,12 @@ namespace RemoteX
             InitializeComponent();
             password_box.Text = Properties.Settings.Default.Password;
             checkBox.IsChecked = Properties.Settings.Default.isstartup;
-            Debug.WriteLine(checkBox.IsChecked);
-            Properties.Settings.Default.settingwindows = 1;
             base.Closing += this.settings_window_Closing;
         }
 
         private void settings_window_Closing(object sender, CancelEventArgs e)
         {
-            Properties.Settings.Default.settingwindows = 0;
+                
         }
 
         private void save_Click(object sender, RoutedEventArgs e)

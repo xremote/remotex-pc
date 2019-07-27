@@ -21,7 +21,7 @@ namespace RemoteX
 
         SolidColorBrush G_red = new SolidColorBrush(System.Windows.Media.Color.FromRgb(197, 19, 19));
         SolidColorBrush G_green = new SolidColorBrush(System.Windows.Media.Color.FromRgb(19, 147, 43));
-
+        Settings subWindow = new Settings();
         NotifyIcon G_nIcon = new NotifyIcon();
         private System.Windows.Forms.ContextMenu G_traymenu;
         private System.Windows.Forms.MenuItem G_traymennu_exit;
@@ -219,17 +219,22 @@ namespace RemoteX
 
         private void Heading_text_Click(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.settingwindows == 0)
-            {
                 show_settings_wndw();
-            }
-
         }
 
         private void show_settings_wndw()
-        {
-            Settings subWindow = new Settings();
-            subWindow.Show();
+        {            
+            try
+            {
+                subWindow.Show();
+            }catch(Exception e)
+            {
+                Debug.WriteLine("error " + e);
+                subWindow = new Settings();
+                subWindow.Show();
+                
+            }
+            
         }
     }
 }
