@@ -162,6 +162,18 @@ namespace RemoteX
 
             while (true)
             {
+                Debug.WriteLine("refreshing ");
+                if (G_socket != null)
+                {
+                    //checked if still connected to remote
+                    bool cn = G_socket.Poll(10, SelectMode.SelectRead);
+                        Debug.WriteLine("refreshing " + cn);
+                    if (cn)
+                    {
+                        disconnect_network();
+                    }
+                }
+
                 if (G_disconnect)
                 {
                     disconnect_network();
