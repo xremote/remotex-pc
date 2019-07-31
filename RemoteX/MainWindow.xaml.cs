@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows;
@@ -166,8 +167,7 @@ namespace RemoteX
                 if (G_socket != null)
                 {
                     //checked if still connected to remote
-                    bool cn = G_socket.Poll(10, SelectMode.SelectRead);
-                        Debug.WriteLine("refreshing " + cn);
+                    bool cn = check_connectivity();
                     if (cn)
                     {
                         disconnect_network();
@@ -223,6 +223,12 @@ namespace RemoteX
             }
         }
 
+
+        private bool check_connectivity()
+        {
+            return G_socket.Poll(10, SelectMode.SelectRead);
+            
+        }
         private void Disconnect_button_Click(object sender, RoutedEventArgs e)
         {
             G_disconnect = true;

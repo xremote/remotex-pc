@@ -39,14 +39,12 @@ namespace RemoteX
             try
             {
                 Debug.WriteLine("Listening......");
-                G_socket = G_listener.AcceptSocket();
+                G_socket = G_listener.AcceptSocket();                
             }
             catch (Exception f)
             {
                 Debug.WriteLine(f.Message);
             }
-
-
 
             try
             {
