@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace RemoteX
 {
@@ -11,7 +12,7 @@ namespace RemoteX
         private const int EXPLORER_DRIVE = 1;
         private const int EXPLORER_FILE = 2;
 
-        public void getdriveinfo(String _input)
+        public void explorer_actions(String _input)
         {
             String drive_info = null;
 
@@ -32,14 +33,12 @@ namespace RemoteX
                                     {
                                         continue;
                                     }
-
                                 }
                                 catch (Exception e)
                                 {
                                     Debug.WriteLine(e.Message);
                                     continue;
                                 }
-
 
                                 if (drive.IsReady)
                                 {
@@ -56,7 +55,7 @@ namespace RemoteX
                                 drive_info = drive_info.Substring(0, drive_info.Length - 1); //remove last symbol ';'
                             }
 
-                            G_streamwriter.WriteLine(drive_info);
+                            crypt_WriteLine(drive_info);
                             break;
                         }
 
@@ -102,17 +101,25 @@ namespace RemoteX
                                 drive_info = drive_info.Substring(0, drive_info.Length - 1); //remove last ;
                             }
 
-                            G_streamwriter.WriteLine(drive_info);
+                            crypt_WriteLine(drive_info);
                             break;
                         }
                     case EXPLORER_FILE:
                         {
                             try
                             {
-
-                                if (File.Exists(_input))
+                                G_sendfile_thread = new Thread(() => sendfile(_input));
+                                if (File.Exists(_input) && G_sendfile_thread.ThreadState!=0) // not running
                                 {
-                                    sendfile(_input);
+                                    //send file from a thread
+                                    try
+                                    {                                           
+                                        G_sendfile_thread.Start();
+                                    }
+                                    catch (Exception f)
+                                    {
+                                        Debug.WriteLine("catch " + f.Message);
+                                    }
                                 }
                             }
                             catch (Exception e)
@@ -124,7 +131,7 @@ namespace RemoteX
                         }
                     default:
                         {
-                            G_streamwriter.WriteLine(drive_info);
+                            crypt_WriteLine(drive_info);
                             break;
                         }
 
@@ -149,52 +156,77 @@ namespace RemoteX
             {
                 return false; // <- File failed to open
             }
-
         }
 
-        public void sendfile(string filename)
+        private void sendfile(string filename)
         {
-
-            int bytes_read = 0;
-            Int64 numberOfBytes = 0, bytesReceived = 0;
             MemoryStream memory_stream = new MemoryStream();
-            System.IO.FileStream file_stream = new FileStream(filename, FileMode.Open, FileAccess.Read);
-            var buffer = new byte[1024 * 128];
+            System.IO.FileStream file_stream=null;
 
-
-            memory_stream.Position = 0;
-            file_stream.Position = 0;
-
-            file_stream.CopyTo(memory_stream);
-            file_stream.Close();
-
-            G_stream.Write(BitConverter.GetBytes(memory_stream.Length), 0, 8);
-
-            if (memory_stream.Length > 0)
+            try
             {
-                Debug.WriteLine("send file " + memory_stream.Length);
+
+                int bytes_read = 0;
+                Int64 numberOfBytes = 0, bytesReceived = 0;
+                 memory_stream = new MemoryStream();
+                file_stream = new FileStream(filename, FileMode.Open, FileAccess.Read);
+                var buffer = new byte[1024 * 128];
+
                 memory_stream.Position = 0;
-                numberOfBytes = memory_stream.Length;
-                G_stream.WriteTimeout = 1500;
-                while (bytesReceived < numberOfBytes && (bytes_read = memory_stream.Read(buffer, 0, buffer.Length)) > 0)
+                file_stream.Position = 0;
+
+                file_stream.CopyTo(memory_stream);
+                file_stream.Close();
+
+                crypt_Write(BitConverter.GetBytes(memory_stream.Length), 0, 8);
+
+                if (memory_stream.Length > 0)
                 {
-                    try
+                    Debug.WriteLine("send file " + memory_stream.Length);
+                    memory_stream.Position = 0;
+                    numberOfBytes = memory_stream.Length;
+                    G_stream.WriteTimeout = 1500;
+                    while (bytesReceived < numberOfBytes && (bytes_read = memory_stream.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        G_stream.Write(buffer, 0, bytes_read);
-                        
+                        try
+                        {
+                            crypt_Write(buffer, 0, bytes_read);
+                            Debug.WriteLine("Sending");
+
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.WriteLine(e.ToString());
+                        }
+                        bytesReceived += bytes_read;
+                        Debug.WriteLine("sent " + bytesReceived);
                     }
-                    catch(Exception e)
-                    {
-                        
-                        Debug.WriteLine(e.ToString() + " error " + G_stream.CanWrite);
-                        break;
-                    }
-                    bytesReceived += bytes_read;
-                    Debug.WriteLine("sent " + bytesReceived);
+                    G_stream.WriteTimeout = System.Threading.Timeout.Infinite;
                 }
-                //G_streamwriter.WriteLine("");
-                Debug.WriteLine("done " + G_stream.DataAvailable);
-                G_stream.WriteTimeout = System.Threading.Timeout.Infinite;
+            }
+            finally
+            {
+                //free all memory leakages
+                Debug.WriteLine("clear sent file memory leakages");
+                long ln = -1;
+                try
+                {
+                    crypt_Write(BitConverter.GetBytes(ln), 0, 8);
+                }
+                catch(Exception e)
+                {
+                    Debug.WriteLine(e);
+                }
+                
+                memory_stream.Close();
+                memory_stream.Dispose();
+                memory_stream = null;
+                if (file_stream != null)
+                {
+                    file_stream.Close();
+                    file_stream.Dispose();
+                    file_stream = null;
+                }
             }
         }
     }

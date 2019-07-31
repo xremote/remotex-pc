@@ -10,17 +10,26 @@
                   Style="{DynamicResource BlankWindow}"
                   
                   >
+    <mui:ModernWindow.Resources>
+        <BitmapImage x:Key="ImageSource1" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\Users\som\Documents\github\remotex-pc\RemoteX\settings.png"/>
+    </mui:ModernWindow.Resources>
 
 
     <StackPanel Margin="0,2,0,-2">
-        <Button x:Name="Heading_text" FontSize="29.333"    FontWeight="Thin" Margin="56,0" HorizontalAlignment="Center" Foreground="#FF3971D3" Width="462" Height="44" Click="Heading_text_Click"  ><Run Text="RemoteX"/></Button>
+        <Button x:Name="Heading_text" FontSize="29.333" FontWeight="Thin" Margin="56,0" HorizontalAlignment="Center" Foreground="#FF3971D3" Width="462" Height="44" Click="Heading_text_Click"  >
+            <Run Text="RemoteX"></Run>
+        </Button>
+        <Image x:Name="s_image" Height="30" Width="30" Source="{DynamicResource ImageSource1}"
+               Margin="0,-45,55,0"
+               HorizontalAlignment="Right"  Cursor="Hand" MouseDown="Heading_text_Click"/>
+
         <TextBlock x:Name ="PCName_text" FontSize="20"  FontWeight="Thin" Margin="20,10,0,0" HorizontalAlignment="Left" ><Run Text="PC Name :"/></TextBlock>
         <TextBlock x:Name ="hostIP_text" FontSize="20"  FontWeight="Thin"   Margin="20,10,0,0" HorizontalAlignment="Left"  ><Run Text="IP Address :"/></TextBlock>
         <TextBlock x:Name ="Connected_Status_text" FontSize="25.333"   TextAlignment="Center" FontWeight="Thin"  Margin="0,20,0,0" HorizontalAlignment="Center" Foreground="#FFC51313" Width="574" ><Run Text="No Device Connected."/></TextBlock>
         <TextBlock x:Name ="RemoteIP_Text" FontSize="20"   FontWeight="Thin"  Margin="20,15,0,0" HorizontalAlignment="Left" ><Run Text="Remote IP Address :"/></TextBlock>
         <Button x:Name="Refresh_button" Height="25" Width="150"    HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Bottom" Content="Refresh" Click="Refresh_button_Click"/>
         <Button x:Name="Disconnect_button" Height="25" Width="150"   HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Bottom" Content="Disconnect" Click="Disconnect_button_Click"  Foreground="Red"/>
-        
+
     </StackPanel>
 
 

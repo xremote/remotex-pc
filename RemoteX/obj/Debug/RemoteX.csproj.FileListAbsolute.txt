@@ -43,3 +43,4 @@ C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csproj.CoreCo
 C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csproj.CopyComplete
 C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.exe
 C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.pdb
+C:\Users\som\Documents\github\remotex-pc\RemoteX\obj\Debug\RemoteX.csprojAssemblyReference.cache

@@ -19,7 +19,7 @@ namespace RemoteX
         public StreamWriter G_streamwriter;
         Socket G_socket = null;
         Thread G_Listener_thread;
-
+        Thread G_sendfile_thread;
 
         private void start_thread()
         {
@@ -38,15 +38,13 @@ namespace RemoteX
         {
             try
             {
-                Debug.WriteLine("Listening/......");
-                G_socket = G_listener.AcceptSocket();
+                Debug.WriteLine("Listening......");
+                G_socket = G_listener.AcceptSocket();                
             }
             catch (Exception f)
             {
                 Debug.WriteLine(f.Message);
             }
-
-
 
             try
             {
@@ -57,58 +55,17 @@ namespace RemoteX
                 G_streamwriter.Flush();
                 string networkmessage = "";
 
-                while (true) // keep listening for messages until disconnects
+                networkmessage = crypt_ReadLine();
+                Debug.WriteLine("what " + networkmessage);
+                if (networkmessage != "connected")
                 {
-
-                    if (G_disconnect)
-                    {
-                        disconnect_network();
-                        break;
-                    }
-                    Debug.WriteLine("Waiting for msg....");
-                    networkmessage = G_streamreader.ReadLine();
-
-
-                    if (networkmessage != null)
-                    {
-                        Debug.WriteLine(networkmessage);
-                        if (networkmessage[0] == '!')
-                        {
-                            screen_mouse(networkmessage.Substring(1, networkmessage.Length - 1) + ";#");  //screensharing
-                            sendscreen();
-                        }
-                        else if (networkmessage[0] == '*')
-                        {
-                            movemouse(networkmessage.Substring(1, networkmessage.Length - 1) + "#");   //mouse 
-                        }
-                        else if (networkmessage[0] == '@')
-                        {
-                            extractkey(networkmessage.Substring(1, networkmessage.Length - 1) + "#");    //keyboard
-                        }
-                        else if (networkmessage[0] == '%')
-                        {
-                            shortcut(networkmessage.Substring(1, networkmessage.Length - 1));        // shortcutkeys
-                        }
-                        else if (networkmessage[0] == '$')
-                        {
-                            sendsysinfo(networkmessage.Substring(1, networkmessage.Length - 1));    //system info
-                        }
-                        else if (networkmessage[0] == '&')
-                        {
-                            getdriveinfo(networkmessage.Substring(1, networkmessage.Length - 1));   //explorer
-                        }
-                        else if (networkmessage[0] == '^')
-                        {
-                            specialaction(networkmessage.Substring(1, networkmessage.Length - 1)); //special actions
-                        }
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    throw new System.ArgumentException("connection error", "not connected");
                 }
-
-
+                else
+                {
+                    crypt_WriteLine("connected");
+                    Start_Recieving();
+                }
             }
             catch (Exception e)
             {
@@ -125,6 +82,81 @@ namespace RemoteX
             {
                 Debug.WriteLine(e.Message);
             }
+
+        }
+
+        public void Start_Recieving()
+        {
+
+            String networkmessage = "";
+            while (true) // keep listening for messages until disconnects
+            {
+                
+                if (G_disconnect)
+                {
+                    disconnect_network();
+                    break;
+                }
+                Debug.WriteLine("Waiting for msg....");
+
+                networkmessage = crypt_ReadLine();
+
+                Debug.WriteLine(networkmessage);
+                if (networkmessage != null && networkmessage.Length > 0)
+                {
+                    if (networkmessage.Equals("syncback"))
+                    {
+                        if (G_sendfile_thread != null && G_sendfile_thread.IsAlive)
+                        {
+                            Debug.WriteLine("closed file thread");
+                            G_sendfile_thread.Abort();
+                            G_sendfile_thread = null;
+                        }
+                    }
+                    else if (networkmessage[0] == '!')
+                    {
+                        screen_mouse(networkmessage.Substring(1, networkmessage.Length - 1) + ";#");  //screensharing
+                        sendscreen();
+                    }
+                    else if (networkmessage[0] == '*')
+                    {
+                        movemouse(networkmessage.Substring(1, networkmessage.Length - 1) + "#");   //mouse 
+                    }
+                    else if (networkmessage[0] == '@')
+                    {
+                        extractkey(networkmessage.Substring(1, networkmessage.Length - 1) + "#");    //keyboard
+                    }
+                    else if (networkmessage[0] == '%')
+                    {
+                        shortcut(networkmessage.Substring(1, networkmessage.Length - 1));        // shortcutkeys
+                    }
+                    else if (networkmessage[0] == '$')
+                    {
+                        sendsysinfo(networkmessage.Substring(1, networkmessage.Length - 1));    //system info
+                    }
+                    else if (networkmessage[0] == '&')
+                    {
+                        explorer_actions(networkmessage.Substring(1, networkmessage.Length - 1));   //explorer
+                    }
+                    else if (networkmessage[0] == '^')
+                    {
+                        specialaction(networkmessage.Substring(1, networkmessage.Length - 1)); //special actions
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    Debug.WriteLine("No  message found");
+                    break;
+                }
+
+            }
+            //something wrongoccured
+            Debug.WriteLine("while loop ends please");
+            crypt_WriteLine("Disconnect");
 
         }
 
@@ -176,15 +208,14 @@ namespace RemoteX
                 Debug.WriteLine("socket shutdown " + e);
             }
 
-
-
             try
             {
                 G_Listener_thread.Abort();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
             }
 
             G_threadrunning = false;

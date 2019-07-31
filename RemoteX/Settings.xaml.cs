@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Reflection;
 
 namespace RemoteX
 {
@@ -28,20 +29,33 @@ namespace RemoteX
             InitializeComponent();
             password_box.Text = Properties.Settings.Default.Password;
             checkBox.IsChecked = Properties.Settings.Default.isstartup;
-            Debug.WriteLine(checkBox.IsChecked);
-            Properties.Settings.Default.settingwindows = 1;
             base.Closing += this.settings_window_Closing;
         }
 
         private void settings_window_Closing(object sender, CancelEventArgs e)
         {
-            Properties.Settings.Default.settingwindows = 0;
+                
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Password = password_box.Text;
             Properties.Settings.Default.isstartup = (bool)checkBox.IsChecked;
+
+            // set registry for startup
+            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            string app_loc = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            app_loc = app_loc + "\\RemoteX.exe";
+            Debug.WriteLine(app_loc);
+            if ((bool)checkBox.IsChecked)
+            {
+                key.SetValue("Remotex_startup", app_loc);
+            }
+            else
+            {
+                key.SetValue("Remotex_startup", "");
+            }
+
             Properties.Settings.Default.Save();
         }
     }

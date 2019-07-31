@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace RemoteX
 
         SolidColorBrush G_red = new SolidColorBrush(System.Windows.Media.Color.FromRgb(197, 19, 19));
         SolidColorBrush G_green = new SolidColorBrush(System.Windows.Media.Color.FromRgb(19, 147, 43));
-
+        Settings subWindow = new Settings();
         NotifyIcon G_nIcon = new NotifyIcon();
         private System.Windows.Forms.ContextMenu G_traymenu;
         private System.Windows.Forms.MenuItem G_traymennu_exit;
@@ -159,8 +160,20 @@ namespace RemoteX
 
         private async void refreshUI()
         {
+
             while (true)
             {
+                Debug.WriteLine("refreshing ");
+                if (G_socket != null)
+                {
+                    //checked if still connected to remote
+                    bool cn = check_connectivity();
+                    if (cn)
+                    {
+                        disconnect_network();
+                    }
+                }
+
                 if (G_disconnect)
                 {
                     disconnect_network();
@@ -210,6 +223,12 @@ namespace RemoteX
             }
         }
 
+
+        private bool check_connectivity()
+        {
+            return G_socket.Poll(10, SelectMode.SelectRead);
+            
+        }
         private void Disconnect_button_Click(object sender, RoutedEventArgs e)
         {
             G_disconnect = true;
@@ -218,18 +237,22 @@ namespace RemoteX
 
         private void Heading_text_Click(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.settingwindows == 0)
-            {
                 show_settings_wndw();
-            }
-
         }
 
         private void show_settings_wndw()
-        {
-
-            Settings subWindow = new Settings();
-            subWindow.Show();
+        {            
+            try
+            {
+                subWindow.Show();
+            }catch(Exception e)
+            {
+                Debug.WriteLine("error " + e);
+                subWindow = new Settings();
+                subWindow.Show();
+                
+            }
+            
         }
     }
 }
